@@ -1,7 +1,7 @@
 # slack-app-integration
 Slack app to save data from a channel to mysql db
 
-This project requires node.js installed in your system. get it from here [node.js](http://nodejs.org)
+This project requires node.js installed in your system. get it from here [node.js](http://nodejs.org){:target="_blank"}
 
 ## Follow this to get started:
 
@@ -17,5 +17,5 @@ This project requires node.js installed in your system. get it from here [node.j
 
 6. open new terminal and run `npm start`.
 
-7. After that, go to [https://akshay-laxcon.serveo.net](https://akshay-laxcon.serveo.net) to see all updates from slack channel.
+7. After that, go to [https://akshay-laxcon.serveo.net](https://akshay-laxcon.serveo.net){:target="_blank"} to see all updates from slack channel.
 
