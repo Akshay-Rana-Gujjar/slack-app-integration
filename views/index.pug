@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  h1 Slack App for Laxcon Steels
+  .container
+    <div class="card">
+      <div class="card-body font-weight-bolder">
+        .row
+          .col-2
+            span Username
+          .col-2
+            span Command
+          .col-2
+            span Response
+          .col-2
+            span Channel Name
+          .col-2
+            span Date
+          .col-2
+            span Time
+      </div>  
+    </div>
+    div#updates
+      each dbData in data
+        <div class="card">
+          <div class="card-body">
+            .row
+              .col-2
+                span=dbData.user_name
+              .col-2
+                span=dbData.command
+              .col-2
+                span=`USD ${dbData.text},   AED ${(parseFloat(dbData.text) * 3.675).toFixed(2)}`
+              .col-2
+                span=dbData.channel_name
+              .col-2
+                span=(new Date(parseInt(dbData.timestamp)).toDateString())
+              .col-2
+                span=(new Date(parseInt(dbData.timestamp)).toTimeString())
+          </div>
+          
+        </div>
+
+
+
+
+
+  script.
+    var updates = document.getElementById("updates");
+    var socket = io();
+    socket.on("update", function(data){
+      console.log(data);
+      var updateHtml =`<div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">
+              <span> ${data.user_name}</span>
+              </div>
+            <div class="col-2">
+              <span> ${data.command}</span>
+              </div>
+            <div class="col-2">
+              <span> ${data.response}</span>
+              </div>
+            <div class="col-2">
+              <span> ${data.channel_name}</span>
+              </div>
+            <div class="col-2">
+              <span> ${new Date(data.timestamp).toDateString()}</span>
+              </div>
+            <div class="col-2">
+              <span> ${new Date(data.timestamp).toTimeString()} </span>
+              </div>
+          </div>
+        </div>
+        
+      </div>`;
+
+      updates.insertAdjacentHTML('afterbegin', updateHtml);
+
+    });
