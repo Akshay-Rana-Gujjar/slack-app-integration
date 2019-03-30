@@ -4,13 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mysql = require('mysql');
+const config = require("./config.json");
 
 
 const db = mysql.createConnection ({
-  host: 'localhost',
-  user: 'akshay',
-  password: 'akshay@Ran',
-  database: 'slack_app'
+  host: config.host,
+  user: config.user,
+  password: config.password,
+  database: config.database
 });
 
 // connect to database

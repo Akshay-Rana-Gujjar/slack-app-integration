@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "user": "akshay", // <== change with your mysql username
+    "password": "akshay@Ran", //<== change with your mqsql password
+    "database": "slack_app"
+}
